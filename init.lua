@@ -918,19 +918,29 @@ require('lazy').setup({
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
 
+      Logo = {
+        [[                                                                       ]],
+        [[                                                                     ]],
+        [[       ████ ██████           █████      ██                     ]],
+        [[      ███████████             █████                             ]],
+        [[      █████████ ███████████████████ ███   ███████████   ]],
+        [[     █████████  ███    █████████████ █████ ██████████████   ]],
+        [[    █████████ ██████████ █████████ █████ █████ ████ █████   ]],
+        [[  ███████████ ███    ███ █████████ █████ █████ ████ █████  ]],
+        [[ ██████  █████████████████████ ████ █████ █████ ████ ██████ ]],
+        [[                                                                       ]],
+      }
+
       require('mini.starter').setup {
         content_hooks = {
           require('mini.starter').gen_hook.adding_bullet '  • ',
           require('mini.starter').gen_hook.aligning('center', 'center'),
         },
-        header = 'The sky was the color of television tuned to a dead channel.',
+        header = table.concat(Logo, '\n'),
         footer = os.date(),
         items = {
-          { action = 'enew', name = 'New Buffer', section = 'Actions' },
-          { action = 'Telescope find_files', name = 'Files', section = 'Actions' },
-          { action = 'Telescope live_grep', name = 'Grep', section = 'Actions' },
-          { action = 'Telescope oldfiles', name = 'Recent Files', section = 'Actions' },
-          { action = 'Telescope buffers', name = 'Buffers', section = 'Actions' },
+          { action = 'enew', name = 'New', section = 'Actions' },
+          { action = 'Telescope oldfiles', name = 'Recent', section = 'Actions' },
         },
       }
 
