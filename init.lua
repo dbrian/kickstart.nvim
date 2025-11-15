@@ -918,6 +918,22 @@ require('lazy').setup({
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
 
+      require('mini.starter').setup {
+        content_hooks = {
+          require('mini.starter').gen_hook.adding_bullet '  • ',
+          require('mini.starter').gen_hook.aligning('center', 'center'),
+        },
+        header = 'The sky was the color of television tuned to a dead channel.',
+        footer = os.date(),
+        items = {
+          { action = 'enew', name = 'New Buffer', section = 'Actions' },
+          { action = 'Telescope find_files', name = 'Files', section = 'Actions' },
+          { action = 'Telescope live_grep', name = 'Grep', section = 'Actions' },
+          { action = 'Telescope oldfiles', name = 'Recent Files', section = 'Actions' },
+          { action = 'Telescope buffers', name = 'Buffers', section = 'Actions' },
+        },
+      }
+
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
       --  and try some other statusline plugin
